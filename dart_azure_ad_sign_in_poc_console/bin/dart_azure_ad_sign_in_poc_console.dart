@@ -5,7 +5,7 @@ import 'package:dart_azure_ad_sign_in/src/dart_azure_ad_sign_in_base.dart';
 
 Future<void> main(List<String> arguments) async {
   // Create instance of Azure SignIn, all parameters are optional.
-  final azureSignIn = AzureSignIn();
+  final azureSignIn = AzureSignIn(port: 5050);
 
   // Print the SignIn URL.
   print(azureSignIn.authUri);
