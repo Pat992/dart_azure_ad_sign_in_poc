@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dart_azure_ad_sign_in/dart_azure_ad_sign_in.dart';
 import 'package:dart_azure_ad_sign_in/src/dart_azure_ad_sign_in_base.dart';
 
@@ -20,6 +22,10 @@ Future<void> main(List<String> arguments) async {
 
   // Print the updated token information
   printToken(token: token, title: 'Refreshed Token');
+
+  // wait for input
+  print('Press any key to exit');
+  stdin.readLineSync();
 }
 
 void printToken({required Token token, required String title}) {
