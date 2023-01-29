@@ -36,8 +36,8 @@ class _SignInPageState extends State<SignInPage> {
   int status = 0;
   String error = '';
   String errorDesc = '';
-  String activeFrom = '';
-  String activeTo = '';
+  String activeFrom = '0';
+  String activeTo = '0';
   String authToken = '';
   String refToken = '';
 
@@ -63,8 +63,8 @@ class _SignInPageState extends State<SignInPage> {
       status = token.status;
       error = token.error;
       errorDesc = token.errorDescription;
-      activeFrom = token.notBefore;
-      activeTo = token.expiresOn;
+      activeFrom = token.notBefore != '' ? token.notBefore : '0';
+      activeTo = token.expiresOn != '' ? token.expiresOn : '0';
       authToken = token.accessToken;
       refToken = token.refreshToken;
     });
