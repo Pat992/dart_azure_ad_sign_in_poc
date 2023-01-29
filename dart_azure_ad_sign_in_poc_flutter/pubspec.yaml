@@ -30,11 +30,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dart_azure_ad_sign_in:
+    path: packages/dart_azure_ad_sign_in
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
+  url_launcher: ^6.1.8
 
 dev_dependencies:
   flutter_test:
