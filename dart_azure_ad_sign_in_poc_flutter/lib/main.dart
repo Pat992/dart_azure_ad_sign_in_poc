@@ -30,7 +30,7 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  final azureSignIn = AzureSignIn(port: 5000);
+  final azureSignIn = AzureSignIn(port: 8080);
   late Token token;
   bool isSignIn = false;
   int status = 0;
@@ -134,7 +134,7 @@ class _SignInPageState extends State<SignInPage> {
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Text(errorDesc),
+                      Flexible(child: Text(errorDesc)),
                     ],
                   ),
                   Row(
