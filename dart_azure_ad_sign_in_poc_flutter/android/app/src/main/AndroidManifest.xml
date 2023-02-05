@@ -2,10 +2,10 @@
     package="com.example.dart_azure_ad_sign_in_poc_flutter">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
+        android:networkSecurityConfig="@xml/network_security_config"
         android:label="dart_azure_ad_sign_in_poc_flutter"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
-       android:usesCleartextTraffic="true">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"

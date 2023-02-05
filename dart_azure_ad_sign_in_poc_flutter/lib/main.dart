@@ -30,8 +30,11 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  // Initialize AzureSignIn
   final azureSignIn = AzureSignIn(port: 8080);
+  // Token instance for later usage
   late Token token;
+  // Some variables to show in the app
   bool isSignIn = false;
   int status = 0;
   String error = '';
@@ -41,23 +44,31 @@ class _SignInPageState extends State<SignInPage> {
   String authToken = '';
   String refToken = '';
 
+  // Function to get a new token
   Future<void> getToken() async {
-    if (await canLaunchUrl(Uri.parse(azureSignIn.authUri))) {
-      await launchUrl(Uri.parse(azureSignIn.authUri));
+    // Check if can launch URL
+    if (await canLaunchUrl(Uri.parse(azureSignIn.signInUri))) {
+      // Launch sign-in page in browser
+      await launchUrl(Uri.parse(azureSignIn.signInUri));
+      // Start the sign-in process
       token = await azureSignIn.signIn();
+      // Call function to set fields
       tokenToFields();
     }
   }
 
+  // Cancel a sign-in process
   Future<void> cancelGetToken() async {
     await azureSignIn.cancelSignIn();
   }
 
+  // Refresh an existing token
   Future<void> refreshToken() async {
     token = await azureSignIn.refreshToken(token: token);
     tokenToFields();
   }
 
+  // Set fields with generated token
   void tokenToFields() {
     setState(() {
       status = token.status;
@@ -148,7 +159,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       Text(
                         DateTime.fromMillisecondsSinceEpoch(
-                                int.parse(activeFrom) * 1000)
+                                (int.tryParse(activeFrom) ?? 0) * 1000)
                             .toString(),
                       ),
                     ],
@@ -164,7 +175,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       Text(
                         DateTime.fromMillisecondsSinceEpoch(
-                                int.parse(activeTo) * 1000)
+                                (int.tryParse(activeTo) ?? 0) * 1000)
                             .toString(),
                       ),
                     ],
