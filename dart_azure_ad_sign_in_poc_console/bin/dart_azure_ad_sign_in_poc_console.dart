@@ -1,29 +1,27 @@
 import 'dart:io';
 
 import 'package:dart_azure_ad_sign_in/dart_azure_ad_sign_in.dart';
-import 'package:dart_azure_ad_sign_in/src/dart_azure_ad_sign_in_base.dart';
 
 Future<void> main(List<String> arguments) async {
   // Create instance of Azure SignIn, all parameters are optional.
-  final azureSignIn = AzureSignIn(port: 5050);
+  final azureSignIn = AzureSignIn();
 
   // Print the SignIn URL.
-  print(azureSignIn.authUri);
+  print(azureSignIn.signInUri);
 
-  // Let the user to open the URL and signing in
-  // can also b cancelled with azureSignIn.cancelSignIn();
+// Print the SignIn URL for the user to open.
   Token token = await azureSignIn.signIn();
 
-  // Print the token information
+  // Print the token information.
   printToken(token: token, title: 'Initial Token');
 
-  // refresh an expired token
+  // refresh an expired token.
   token = await azureSignIn.refreshToken(token: token);
 
-  // Print the updated token information
+  // Print the updated token information.
   printToken(token: token, title: 'Refreshed Token');
 
-  // wait for input
+  // wait for input.
   print('Press any key to exit');
   stdin.readLineSync();
 }
