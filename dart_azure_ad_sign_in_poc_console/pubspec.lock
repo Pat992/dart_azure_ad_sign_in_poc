@@ -77,10 +77,10 @@ packages:
     dependency: "direct main"
     description:
       name: dart_azure_ad_sign_in
-      sha256: "23d81914de71aaa9fc4f1876dab6e9a194a24bedee24956e70f9f18f93ef4128"
+      sha256: f5fef8ff6649647e3b4d99fbc60b5e5fde62ca4248442ec73992ba153db0e438
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0+2"
+    version: "1.0.1"
   file:
     dependency: transitive
     description:
@@ -378,4 +378,4 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.0 <3.0.0"
+  dart: ">=2.19.0 <4.0.0"

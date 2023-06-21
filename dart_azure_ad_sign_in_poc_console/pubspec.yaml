@@ -8,7 +8,7 @@ environment:
   sdk: '>=2.19.0 <3.0.0'
 
 dependencies: 
-  dart_azure_ad_sign_in: ^1.0.0+2
+  dart_azure_ad_sign_in: ^1.0.1
 
 dev_dependencies:
   lints: ^2.0.0
